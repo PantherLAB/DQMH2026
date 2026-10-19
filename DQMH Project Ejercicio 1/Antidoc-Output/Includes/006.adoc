@@ -1,0 +1,59 @@
+== +++Application.lvlib+++
+
+
+*Responsibility:*
+No description found (add content in lvlib description)
+
+*Version:* 1.0.0.0
+
+=== Functions
+
+.Functions (non private scope only)
+[cols="<.<4a,<.<8a,<.<12d,<.<1a,<.<1a,<.<1a", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|Name |Connector pane |Description |S. |R. |I.
+
+|+++Main+++
+
+|image::Application.lvlib-Main.vi.png[Application.lvlib:Main.vi]
+|This VI is the main application VI in the DQMH project template. This application VI is implemented as a simple state machine, which communicates with two different DQMH modules.
+
+|image::empty.png[empty.png]
+|image::empty.png[empty.png]
+|image::empty.png[empty.png]
+|===
+
+**S**cope: image:scope-protected.png[] -> Protected | image:scope-community.png[] -> Community
+
+**R**eentrancy: image:reentrancy-preallocated.png[] -> Preallocated reentrancy | image:reentrancy-shared.png[] -> Shared reentrancy
+
+**I**nlining: image:inlined.png[] -> Inlined
+
+=== Library Constant VIs
+
+.Constant VIs Found
+[cols="<.<3a,<.<3a,<.<6a", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|VI Name |Data Type |Value
+
+|+++Application Name--constant+++
+
+|String
+|Application
+|===
+
+=== +++Bookmarks+++
+
+
+==== #DQMH_HowTo
+
+[cols="<.<8a,<.<2a", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|Text |VI
+
+|#DQMH_HowTo This VI is based on the Simple State Machine project template. It illustrates how to use non-DQMH code to call DQMH modules. In this simple state machine VI (which is the top-level application for the DQMH project template), there are several calls to the Public API VIs of the Singleton and Cloneable DQMH modules that are also part of the DQMH project template. For more illustrations of how to call DQMH modules from non-DQMH applications, browse the DQMH examples located at [LabVIEW 20xx]\examples\DQMH Consortium.
+See the following video for a walkthrough of this application functionality: https://bit.ly/DQMHProjectTemplateApplicationWalkthrough
+Documentation available via Help > DQMH Consortium > DQMH Help... menu. 
+|+++Main.vi+++
+
+|===

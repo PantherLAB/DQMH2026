@@ -1,0 +1,63 @@
+== Custom errors
+
+[TIP]
+====
+Custom errors are added via vi named `*--error.vi`.
+====
+
+.Custom errors
+[cols="<.<3a,<.<2a,<.<7a,<.<4a", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|Name |Code |Description |Owned by
+
+|+++Module Running as Singleton+++
+
+|403680
+|The "%s" module is currently running as singleton, but the Start Module VI was called with 'Run as Singleton' specified as FALSE.
+|<<My Cloneable Module.lvlib>>
+
+|+++Module Not Running+++
+
+|403681
+|%s Module is not running.
+|<<My Singleton Module.lvlib>>
+
+|+++Module Not Stopped+++
+
+|403682
+|The Stop Module VI for the %s module timed out while waiting for the module main VI to stop. The module main VI may still be running.
+|<<My Singleton Module.lvlib>> +
+<<My Cloneable Module.lvlib>>
+
+|+++Module Not Synced+++
+
+|403683
+|%s Module was unable to synchronize events.
+|<<My Singleton Module.lvlib>> +
+<<My Cloneable Module.lvlib>>
+
+|+++Module Not Running+++
+
+|403684
+|Not a single instance of "%s" Module running.
+|<<My Cloneable Module.lvlib>>
+
+|+++Module Running as Cloneable+++
+
+|403685
+|The "%s" module is currently running as cloneable, but the Start Module VI was called with 'Run as Singleton' specified as TRUE.
+|<<My Cloneable Module.lvlib>>
+
+|+++Request and Wait for Reply Timeout+++
+
+|403686
+|
+|<<My Singleton Module.lvlib>> +
+<<My Cloneable Module.lvlib>>
+
+|+++Master Reference Not Closed+++
+
+|403687
+|The "%s" module cannot be run as singleton because the Master Reference is still open from a prior run as cloneable. If you plan on running this module as both singleton and cloneable, consider changing your Main VI to wire a value of TRUE to the 'Close Master Reference' input of Init Module.vi.
+|<<My Cloneable Module.lvlib>>
+|===

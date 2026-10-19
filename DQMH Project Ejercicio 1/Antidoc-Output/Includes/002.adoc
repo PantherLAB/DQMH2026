@@ -1,0 +1,148 @@
+== Preamble
+
+A DQMH module is the main component of an architecture based on DQMH(R) framework. A DQMH module is used to implement a section of the application that has one responsibility.
+
+DQMH(R) framework defines two different type of DQMH module.  
+
+====
+*Singleton:*
+
+A Singleton DQMH module can have only one instance running at any given time.
+====
+
+====
+*Cloneable:*
+
+A Cloneable DQMH module can have one or multiple instances running in parallel.
+====
+
+DQMH(R) framework defines two different ways to carry data throughout the application and with both other DQMH modules and non-DQMH based code.
+
+====
+*Request events:*
+
+A request is a code that fires an event requesting the DQMH module to do something. Multiple locations in the code can send events to the DQMH module.
+
+Request events are many-to-one.
+
+Requests are usually named using imperative tense.
+====
+
+====
+*Broadcast events:*
+
+A broadcast is a code that fires an event broadcasting that the DQMH module did something. Multiple Event Structures can register to handle the Broadcast Events.
+
+Broadcast Events are one-to-many.
+
+Broadcasts are usually named using past tense or passive voice.
+====
+
+[#dqmh-default-events]
+====
+*Default events:*
+
+By default all the DQMH (R) Modules are shipped with some default events (Requests and Broadcasts). Here is the  list of this events:
+ 
+* Start Module
+* Stop Module
+* Show Panel
+* Hide Panel
+* Show Diagram
+* Status Updated
+* Error Reported
+* Module Did Stop
+* Update Module Execution Status
+* Module Did Init
+* Get Module Execution Status  
+
+If you want to learn more about default DQMH (R) Events see the https://documentation.dqmh.org/dqmh/7.0/Nomenclature.html[documentaiton].
+====
+
+NOTE: Refer to the DQMH(R) framework official https://documentation.dqmh.org/dqmh/latest[documentation] to find more details on how the framework works
+
+
+The following section gives you details on the project architecture relying on this framework.
+It gives you an overview of the modules' interaction and detailed information on each module.
+
+[NOTE]
+====
+If your module has a helper loop, it will be listed along with the events it processes. Helper loops can be categorized as either DQMH or Custom. To ensure your helper loop adheres to DQMH guidelines see the https://documentation.dqmh.org/dqmh/7.0/AddHelperLooptoDQMHModule.html[documentaiton].
+
+====
+
+Graphs used in this section have the following legend:
+
+*Components:*
+
+
+[graphviz, format="svg", align="center"]
+....
+digraph G_291C09CC2E1341B5BF9C45A267C15C73 {
+rankdir=LR;
+edge[dir=none color=aliceblue  arrowhead=box arrowtail=box style=filled penwidth=1 fontcolor=black fontsize=12]
+node[color=black shape=box fontcolor=black fontsize=12 style=filled fillcolor=white]
+"DQMH module / Lvlib"[label="DQMH module / Lvlib" color=black shape=component fontcolor=black fontsize=12 style=filled fillcolor=white]
+"Vi"[label="Vi" color=skyblue shape=note fontcolor=black fontsize=12 style=filled fillcolor=white]
+}
+....
+
+*Events:*
+
+[graphviz, format="svg", align="center"]
+....
+digraph G_35B2CE5BFE034367AB65E94805B02D17 {
+rankdir=LR;
+edge[dir=both color=black  arrowhead=normal arrowtail=none style=filled penwidth=1 fontcolor=black fontsize=12]
+node[color=black shape=box fontcolor=black fontsize=12 style=filled fillcolor=white]
+"0"[color=white shape=box fontcolor=black fontsize=12 style=filled fillcolor=white]
+"1"[color=white shape=box fontcolor=black fontsize=12 style=filled fillcolor=white]
+"2"[color=white shape=box fontcolor=black fontsize=12 style=filled fillcolor=white]
+"3"[color=white shape=box fontcolor=black fontsize=12 style=filled fillcolor=white]
+"4"[color=white shape=box fontcolor=black fontsize=12 style=filled fillcolor=white]
+"5"[color=white shape=box fontcolor=black fontsize=12 style=filled fillcolor=white]
+"4" -> "5" [label="Broadcast from a DQMH module" dir=both color=goldenrod  arrowhead=normal arrowtail=none style=dashed penwidth=1 fontcolor=black fontsize=12];
+"0" -> "1" [label="Request and wait for Reply to a DQMH module" dir=both color=forestgreen  arrowhead=normal arrowtail=vee style=filled penwidth=1 fontcolor=black fontsize=12];
+"2" -> "3" [label="Request to a DQMH module" dir=both color=forestgreen  arrowhead=normal arrowtail=none style=filled penwidth=1 fontcolor=black fontsize=12];
+}
+....
+
+[NOTE]
+====
+One arrow can represent one or more events between two components
+====
+
+[NOTE]
+====
+Request and Request and wait for Reply are represented by only one arrow.
+If there is no Request and wait for Reply, Request representation is used.
+Otherwise Request and wait for Reply is used
+====
+
+*Start and Stop module callers:*
+
+[graphviz, format="svg", align="center"]
+....
+digraph G_841CE5FA32AF407394918E2911ED1B15 {
+rankdir=LR;
+edge[dir=none color=aliceblue  arrowhead=box arrowtail=box style=filled penwidth=1 fontcolor=black fontsize=12]
+node[color=black shape=box fontcolor=black fontsize=12 style=filled fillcolor=white]
+"248C2046-BBE8-4688-8356-CD427FD5861F"[label="Start Module
+caller" color=black shape=component fontcolor=black fontsize=12 style=filled fillcolor=white]
+"2D675843-DE64-4B8C-9258-F609273C393C"[label="Start Module" color=yellowgreen shape=note fontcolor=black fontsize=12 style=filled fillcolor=white]
+"2D675843-DE64-4B8C-9258-F609273C393C" -> "248C2046-BBE8-4688-8356-CD427FD5861F" [label="Called by" dir=both color=yellowgreen  arrowhead=odot arrowtail=inv style=filled penwidth=1 fontcolor=black fontsize=12];
+}
+....
+
+[graphviz, format="svg", align="center"]
+....
+digraph G_1D5659D65C2C4D62A1AE1CB7C5BEA140 {
+rankdir=LR;
+edge[dir=none color=aliceblue  arrowhead=box arrowtail=box style=filled penwidth=1 fontcolor=black fontsize=12]
+node[color=black shape=box fontcolor=black fontsize=12 style=filled fillcolor=white]
+"3382EA6C-E8A7-4EB1-8EC4-776E8B3E4583"[label="Stop Module
+caller" color=black shape=component fontcolor=black fontsize=12 style=filled fillcolor=white]
+"E01E9520-3C1F-4CF4-B2D1-34DD8DBE764B"[label="Stop Module" color=tomato shape=note fontcolor=black fontsize=12 style=filled fillcolor=white]
+"E01E9520-3C1F-4CF4-B2D1-34DD8DBE764B" -> "3382EA6C-E8A7-4EB1-8EC4-776E8B3E4583" [label="Called by" dir=both color=tomato  arrowhead=odot arrowtail=inv style=dotted penwidth=1 fontcolor=black fontsize=12];
+}
+....

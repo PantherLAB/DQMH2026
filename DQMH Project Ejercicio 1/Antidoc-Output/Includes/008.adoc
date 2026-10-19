@@ -1,0 +1,215 @@
+=== #DQMH_CodeNeeded
+
+[cols="<.<8a,<.<2a,<.<2a", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|Text |VI |Owned by
+
+|#DQMH_CodeNeeded - When adding/changing parameters on the Main VI connector pane:
+1. Right-click this constant and select Open Type Def.
+2. Drag the Main VI for this DQMH module onto the Main VI Type control inside the type definition.
+3. Save and close the type definition.
+|+++Start Module.vi+++
+
+|<<My Cloneable Module.lvlib>>
+
+|#DQMH_CodeNeeded - If you add controls to the connector pane of Main.vi in order to pass in values when starting the module, drag the Main.vi for this DQMH module onto this constant to update the connector pane of the Start on Asynchronous Call function.
+|+++Start Module.vi+++
+
+|<<My Singleton Module.lvlib>>
+
+|#DQMH_CodeNeeded - Initialize your state data here.
+|+++Main.vi+++
+
+|<<My Singleton Module.lvlib>>
+
+|#DQMH_CodeNeeded - Initialize your state data here.
+|+++Main.vi+++
+
+|<<My Cloneable Module.lvlib>>
+
+|#DQMH_CodeNeeded - Initialize the appearance of the front panel.
+|+++Main.vi+++
+
+|<<My Singleton Module.lvlib>>
+
+|#DQMH_CodeNeeded - Initialize the appearance of the front panel.
+|+++Main.vi+++
+
+|<<My Cloneable Module.lvlib>>
+
+|#DQMH_CodeNeeded - Add any required cleanup code here.
+|+++Main.vi+++
+
+|<<My Singleton Module.lvlib>>
+
+|#DQMH_CodeNeeded - Add any required cleanup code here.
+|+++Main.vi+++
+
+|<<My Cloneable Module.lvlib>>
+|===
+
+=== #DQMH_CodeRecommended
+
+[cols="<.<8a,<.<2a,<.<2a", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|Text |VI |Owned by
+
+|#DQMH_CodeRecommended - If you rename your module, update the constant value above.
+|+++Module Name--constant.vi+++
+
+|<<My Singleton Module.lvlib>>
+
+|#DQMH_CodeRecommended - If you rename your module, update the constant value above.
+|+++Module Name--constant.vi+++
+
+|<<My Cloneable Module.lvlib>>
+
+|#DQMH_CodeRecommended - If the module is running in standalone mode (External Launch = FALSE), this code will pop up an error dialog and call the 'Exit' message if an error occurs. Add more fine-grained error management here.
+|+++Main.vi+++
+
+|<<My Singleton Module.lvlib>>
+
+|#DQMH_CodeRecommended - If the module is running in standalone mode (External Launch = FALSE), this code will pop up an error dialog and call the 'Exit' message if an error occurs. Add more fine-grained error management here.
+|+++Main.vi+++
+
+|<<My Cloneable Module.lvlib>>
+
+|#DQMH_CodeRecommended - If you rename the Application, update the constant value above.
+|+++Application Name--constant.vi+++
+
+|<<Application.lvlib>>
+|===
+
+=== #DQMH_HowTo
+
+[cols="<.<8a,<.<2a,<.<2a", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|Text |VI |Owned by
+
+|#DQMH_HowTo This is the top-level VI of a DQMH Singleton module. See the following video for a walkthrough of this VI's functionality: https://bit.ly/DQMHMainWalkthrough
+|+++Main.vi+++
+
+|<<My Singleton Module.lvlib>>
+
+|#DQMH_HowTo This is the top-level VI of a DQMH Cloneable module. See the following video for a discussion of cloneable-specific functionality: https://bit.ly/DQMHCloneableMainWalkthrough
+|+++Main.vi+++
+
+|<<My Cloneable Module.lvlib>>
+
+|#DQMH_HowTo This VI is based on the Simple State Machine project template. It illustrates how to use non-DQMH code to call DQMH modules. In this simple state machine VI (which is the top-level application for the DQMH project template), there are several calls to the Public API VIs of the Singleton and Cloneable DQMH modules that are also part of the DQMH project template. For more illustrations of how to call DQMH modules from non-DQMH applications, browse the DQMH examples located at [LabVIEW 20xx]\examples\DQMH Consortium.
+See the following video for a walkthrough of this application functionality: https://bit.ly/DQMHProjectTemplateApplicationWalkthrough
+Documentation available via Help > DQMH Consortium > DQMH Help... menu. 
+|+++Main.vi+++
+
+|<<Application.lvlib>>
+
+|#DQMH_HowTo The 'Simulate MHL Error' button  illustrates how the MHL handles errors. This event is instructional in nature and can be removed.
+|+++Main.vi+++
+
+|<<My Singleton Module.lvlib>>
+
+|#DQMH_HowTo The 'Simulate MHL Error' button  illustrates how the MHL handles errors. This event is instructional in nature and can be removed.
+|+++Main.vi+++
+
+|<<My Singleton Module.lvlib>>
+
+|#DQMH_HowTo The 'Simulate MHL Error' button  illustrates how the MHL handles errors. This event is instructional in nature and can be removed.
+|+++Main.vi+++
+
+|<<My Cloneable Module.lvlib>>
+
+|#DQMH_HowTo The 'Simulate MHL Error' button  illustrates how the MHL handles errors. This event is instructional in nature and can be removed.
+|+++Main.vi+++
+
+|<<My Cloneable Module.lvlib>>
+
+|#DQMH_HowTo The 'Simulate EHL Error' button  illustrates how the EHL handles errors. This event is instructional in nature and can be removed.
+|+++Main.vi+++
+
+|<<My Singleton Module.lvlib>>
+
+|#DQMH_HowTo The 'Simulate EHL Error' button  illustrates how the EHL handles errors. This event is instructional in nature and can be removed.
+|+++Main.vi+++
+
+|<<My Cloneable Module.lvlib>>
+
+|#DQMH_HowTo The 'Do Something' messages are instructional in nature and can be removed.
+|+++Main.vi+++
+
+|<<My Singleton Module.lvlib>>
+
+|#DQMH_HowTo The 'Do Something' messages are instructional in nature and can be removed.
+|+++Main.vi+++
+
+|<<My Cloneable Module.lvlib>>
+
+|#DQMH_HowTo The 'Do Something' messages are instructional in nature and can be removed.
+|+++Main.vi+++
+
+|<<My Cloneable Module.lvlib>>
+
+|#DQMH_HowTo The 'Do Something' messages are instructional in nature and can be removed with the Tools > DQMH Consortium > DQMH > Event Remove DQMH Event utility.
+|+++Main.vi+++
+
+|<<My Singleton Module.lvlib>>
+
+|#DQMH_HowTo The 'Do Something' messages are instructional in nature and can be removed with the Tools > DQMH Consortium > DQMH > Event > Remove DQMH Event utility.
+|+++Main.vi+++
+
+|<<My Singleton Module.lvlib>>
+
+|#DQMH_HowTo The 'Do Something' messages are instructional in nature and can be removed with the Tools > DQMH Consortium > DQMH > Event > Remove DQMH Event utility.
+|+++Main.vi+++
+
+|<<My Singleton Module.lvlib>>
+
+|#DQMH_HowTo The 'Do Something' messages are instructional in nature and can be removed with the Tools > DQMH Consortium > DQMH > Event > Remove DQMH Event utility.
+|+++Main.vi+++
+
+|<<My Singleton Module.lvlib>>
+
+|#DQMH_HowTo The 'Do Something' messages are instructional in nature and can be removed with the Tools > DQMH Consortium > DQMH > Event > Remove DQMH Event utility.
+|+++Main.vi+++
+
+|<<My Singleton Module.lvlib>>
+
+|#DQMH_HowTo The 'Do Something' messages are instructional in nature and can be removed with the Tools > DQMH Consortium > DQMH > Event > Remove DQMH Event utility.
+|+++Main.vi+++
+
+|<<My Singleton Module.lvlib>>
+
+|#DQMH_HowTo The 'Do Something' messages are instructional in nature and can be removed with the Tools > DQMH Consortium > DQMH > Event > Remove DQMH Event utility.
+|+++Main.vi+++
+
+|<<My Singleton Module.lvlib>>
+
+|#DQMH_HowTo The 'Do Something' messages are instructional in nature and can be removed with the Tools > DQMH Consortium > DQMH > Event > Remove DQMH Event utility.
+|+++Main.vi+++
+
+|<<My Cloneable Module.lvlib>>
+
+|#DQMH_HowTo The 'Do Something' messages are instructional in nature and can be removed with the Tools > DQMH Consortium > DQMH > Event > Remove DQMH Event utility.
+|+++Main.vi+++
+
+|<<My Cloneable Module.lvlib>>
+
+|#DQMH_HowTo The 'Do Something' messages are instructional in nature and can be removed with the Tools > DQMH Consortium > DQMH > Event > Remove DQMH Event utility.
+|+++Main.vi+++
+
+|<<My Cloneable Module.lvlib>>
+
+|#DQMH_HowTo The 'Do Something' messages are instructional in nature and can be removed with the Tools > DQMH Consortium > DQMH > Event > Remove DQMH Event utility.
+|+++Main.vi+++
+
+|<<My Cloneable Module.lvlib>>
+
+|#DQMH_HowTo The 'Do Something' messages are instructional in nature and can be removed with the Tools > DQMH Consortium > DQMH > Event > Remove DQMH Event utility.
+|+++Main.vi+++
+
+|<<My Cloneable Module.lvlib>>
+
+|#DQMH_HowTo The 'Do Something' messages are instructional in nature and can be removed with the Tools > DQMH Consortium > DQMH > Event > Remove DQMH Event utility.
+|+++Main.vi+++
+
+|<<My Cloneable Module.lvlib>>
+|===

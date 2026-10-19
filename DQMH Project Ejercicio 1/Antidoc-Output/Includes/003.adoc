@@ -1,0 +1,30 @@
+== Modules overview
+
+This project contains 1 singleton module and 1 cloneable module.
+
+.Modules list
+[cols="", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|Singleton |Cloneable
+
+|<<My Singleton Module.lvlib>>
+|<<My Cloneable Module.lvlib>>
+|===
+
+This graph represents the links between all DQMH modules.
+
+[graphviz, format="svg", align="center"]
+....
+digraph G_1BF8BDB929204A5BA6E5B75F3B17405B {
+rankdir=LR;
+edge[dir=none color=aliceblue  arrowhead=box arrowtail=box style=filled penwidth=1 fontcolor=black fontsize=12]
+node[color=black shape=box fontcolor=black fontsize=12 style=filled fillcolor=white]
+"Application"[label="Application" color=black shape=component fontcolor=black fontsize=12 style=filled fillcolor=white]
+"My Cloneable Module"[label="My Cloneable Module" color=black shape=component fontcolor=black fontsize=12 style=filled fillcolor=white]
+"My Singleton Module"[label="My Singleton Module" color=black shape=component fontcolor=black fontsize=12 style=filled fillcolor=white]
+"Application" -> "My Singleton Module" [label="    " dir=both color=forestgreen  arrowhead=normal arrowtail=none style=filled penwidth=1 fontcolor=black fontsize=12];
+"Application" -> "My Cloneable Module" [label="    " dir=both color=forestgreen  arrowhead=normal arrowtail=none style=filled penwidth=1 fontcolor=black fontsize=12];
+"My Cloneable Module" -> "Application" [label=" " dir=both color=goldenrod  arrowhead=normal arrowtail=none style=dashed penwidth=1 fontcolor=black fontsize=12];
+"My Singleton Module" -> "Application" [label=" " dir=both color=goldenrod  arrowhead=normal arrowtail=none style=dashed penwidth=1 fontcolor=black fontsize=12];
+}
+....

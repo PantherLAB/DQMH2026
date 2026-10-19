@@ -1,0 +1,27 @@
+== Testers
+
+.VIs and Typedef
+[cols="<.<4a,^.^8a,<.<12d,<.<1a,<.<1a", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|Name |Connector pane |Description |R. |I.
+
+|+++Test My Singleton Module API.vi+++
+
+|image::Test My Singleton Module API.vi.png[Test My Singleton Module API.vi]
+|My Singleton Module API Tester.
+
+|image::empty.png[empty.png]
+|image::empty.png[empty.png]
+
+|+++Test My Cloneable Module API.vi+++
+
+|image::Test My Cloneable Module API.vi.png[Test My Cloneable Module API.vi]
+|My Module API Tester.
+
+|image::empty.png[empty.png]
+|image::empty.png[empty.png]
+|===
+
+**R**eentrancy: image:reentrancy-preallocated.png[] -> Preallocated reentrancy | image:reentrancy-shared.png[] -> Shared reentrancy
+
+**I**nlining: image:inlined.png[] -> Inlined

@@ -1,0 +1,456 @@
+== +++My Cloneable Module.lvlib+++
+
+
+*Type:* Cloneable
+
+*Responsibility:*
+No description found (add content in DQMH module lvlib description)
+
+=== Module relationship
+
+[graphviz, format="svg", align="center"]
+....
+digraph G_E8C4F828CAA746F9A9F1656740BB60CF {
+rankdir=LR;
+edge[dir=none color=aliceblue  arrowhead=box arrowtail=box style=filled penwidth=1 fontcolor=black fontsize=12]
+node[color=black shape=box fontcolor=black fontsize=12 style=filled fillcolor=white]
+"Application"[label="Application" color=black shape=component fontcolor=black fontsize=12 style=filled fillcolor=white]
+"My Cloneable Module"[label="My Cloneable Module" color=slateblue shape=component fontcolor=black fontsize=12 style=filled fillcolor=white]
+"Application" -> "My Cloneable Module" [label="    " dir=both color=forestgreen  arrowhead=normal arrowtail=none style=filled penwidth=1 fontcolor=black fontsize=12];
+"My Cloneable Module" -> "Application" [label=" " dir=both color=goldenrod  arrowhead=normal arrowtail=none style=dashed penwidth=1 fontcolor=black fontsize=12];
+}
+....
+
+.Requests callers
+[cols="", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|Request Name |Callers
+
+|Do Something Else and Wait for Reply
+|
+
+|Do Something Else
+|Application.lvlib:Main.vi
+
+|Do Something
+|Application.lvlib:Main.vi
+
+|Hide Panel
+|Application.lvlib:Main.vi
+
+|Show Diagram
+|
+
+|Show Panel
+|Application.lvlib:Main.vi
+|===
+
+.Broadcasts Listeners
+[cols="", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|Broadcast Name |Listeners
+
+|Did Something
+|
+
+|Error Reported
+|Application.lvlib:Main.vi
+
+|Module Did Init
+|Application.lvlib:Main.vi
+
+|Module Did Stop
+|Application.lvlib:Main.vi
+
+|Status Updated
+|Application.lvlib:Main.vi
+
+|Update Module Execution Status
+|
+|===
+
+.Used requests
+[cols="", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|Module |Requests
+
+|--
+|--
+|===
+
+.Registered broadcast
+[cols="", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|Module |Broadcasts
+
+|--
+|--
+|===
+
+=== Event list
+
+.Events
+[cols="<.<4a,^.<1a,^.<8a,<.<12d,^.<1a,^.<1a,<.<1a", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|Name |Type |Connector pane |Description |S. |R. |I.
+
+|+++Start Module+++
+
+|image::empty.png[empty.png]
+|image::My Cloneable Module.lvlib-Start Module.vi.png[My Cloneable Module.lvlib:Start Module.vi]
+|Launches an instance of the module Main VI. After calling this VI, you can optionally register for broadcast events from the module by wiring the broadcast events output of this VI to a **Register For Events** function. 
+
+After the optional Register For Events function call, you should always call the **Synchronize Module Events.vi** for this module with the 'Wait for Event Sync?' output of this VI to the corresponding input of the Synchronize Module Events.vi. 
+
+To see an example of the proper wiring pattern, see the "Run New Module: Value Change" event frame in the API Tester VI for this module.
+
+The **Validate DQMH Module** tool added a 'Module Name' output to this VI.
+
+|image::empty.png[empty.png]
+|image::empty.png[empty.png]
+|image::empty.png[empty.png]
+
+|+++Stop Module+++
+
+|image::empty.png[empty.png]
+|image::My Cloneable Module.lvlib-Stop Module.vi.png[My Cloneable Module.lvlib:Stop Module.vi]
+|Send the Stop request to the Module's Main.vi. If **Wait for Module to stop?** is TRUE, then this VI will not complete execution until the Module Main VI has stopped running.
+
+**Note:** If the cloneable module is running as singleton, then the 'Wait for Module to stop?' input is ignored... this VI will **always** wait until a cloneable Main VI running as singleton has stopped running.
+
+|image::empty.png[empty.png]
+|image::reentrancy-shared.png[reentrancy-shared.png]
+|image::empty.png[empty.png]
+
+|+++Do Something+++
+
+|image::request.png[request.png]
+|image::My Cloneable Module.lvlib-Do Something.vi.png[My Cloneable Module.lvlib:Do Something.vi]
+|Send the Do something request to the Module's Main.vi.
+
+|image::empty.png[empty.png]
+|image::reentrancy-shared.png[reentrancy-shared.png]
+|image::empty.png[empty.png]
+
+|+++Do Something Else+++
+
+|image::request.png[request.png]
+|image::My Cloneable Module.lvlib-Do Something Else.vi.png[My Cloneable Module.lvlib:Do Something Else.vi]
+|Send the Do Something Else request to the Module's Main.vi.
+
+|image::empty.png[empty.png]
+|image::reentrancy-shared.png[reentrancy-shared.png]
+|image::empty.png[empty.png]
+
+|+++Do Something Else and Wait for Reply+++
+
+|image::request-and-wait-for-reply.png[request-and-wait-for-reply.png]
+|image::My Cloneable Module.lvlib-Do Something Else and Wait for Reply.vi.png[My Cloneable Module.lvlib:Do Something Else and Wait for Reply.vi]
+|Send the Do Something Else request to the Module's Main.vi.
+
+|image::empty.png[empty.png]
+|image::reentrancy-shared.png[reentrancy-shared.png]
+|image::empty.png[empty.png]
+
+|+++Show Panel+++
+
+|image::request.png[request.png]
+|image::My Cloneable Module.lvlib-Show Panel.vi.png[My Cloneable Module.lvlib:Show Panel.vi]
+|Send the Show Panel request to the Module's Main.vi.
+
+|image::empty.png[empty.png]
+|image::reentrancy-shared.png[reentrancy-shared.png]
+|image::empty.png[empty.png]
+
+|+++Hide Panel+++
+
+|image::request.png[request.png]
+|image::My Cloneable Module.lvlib-Hide Panel.vi.png[My Cloneable Module.lvlib:Hide Panel.vi]
+|Send the Hide Panel request to the Module's Main.vi.
+
+|image::empty.png[empty.png]
+|image::reentrancy-shared.png[reentrancy-shared.png]
+|image::empty.png[empty.png]
+
+|+++Show Diagram+++
+
+|image::request.png[request.png]
+|image::My Cloneable Module.lvlib-Show Diagram.vi.png[My Cloneable Module.lvlib:Show Diagram.vi]
+|This VI tells the Module to show its block diagram to facilitate troubleshooting (add probes, breakpoints, highlight execution, etc).
+
+
+|image::empty.png[empty.png]
+|image::reentrancy-shared.png[reentrancy-shared.png]
+|image::empty.png[empty.png]
+
+|+++Module Did Init+++
+
+|image::broadcast.png[broadcast.png]
+|image::My Cloneable Module.lvlib-Module Did Init.vi.png[My Cloneable Module.lvlib:Module Did Init.vi]
+|Send the Module Did Init event to any VI registered to listen to this module's broadcast events.
+
+|image::empty.png[empty.png]
+|image::reentrancy-shared.png[reentrancy-shared.png]
+|image::empty.png[empty.png]
+
+|+++Did Something+++
+
+|image::broadcast.png[broadcast.png]
+|image::My Cloneable Module.lvlib-Did Something.vi.png[My Cloneable Module.lvlib:Did Something.vi]
+|Send the Did Something event to any VI registered to listen to this module's broadcast events.
+
+|image::empty.png[empty.png]
+|image::reentrancy-shared.png[reentrancy-shared.png]
+|image::empty.png[empty.png]
+
+|+++Status Updated+++
+
+|image::broadcast.png[broadcast.png]
+|image::My Cloneable Module.lvlib-Status Updated.vi.png[My Cloneable Module.lvlib:Status Updated.vi]
+|Send the Status Updated event to any VI registered to listen to events from the owning module.
+
+|image::empty.png[empty.png]
+|image::reentrancy-shared.png[reentrancy-shared.png]
+|image::empty.png[empty.png]
+
+|+++Error Reported+++
+
+|image::broadcast.png[broadcast.png]
+|image::My Cloneable Module.lvlib-Error Reported.vi.png[My Cloneable Module.lvlib:Error Reported.vi]
+|Send the Error Reported event to any VI registered to listen to events from the owning module.
+
+|image::empty.png[empty.png]
+|image::reentrancy-shared.png[reentrancy-shared.png]
+|image::empty.png[empty.png]
+
+|+++Module Did Stop+++
+
+|image::broadcast.png[broadcast.png]
+|image::My Cloneable Module.lvlib-Module Did Stop.vi.png[My Cloneable Module.lvlib:Module Did Stop.vi]
+|Send the Module Did Stop event to any VI registered to listen to this module's broadcast events.
+
+|image::empty.png[empty.png]
+|image::reentrancy-shared.png[reentrancy-shared.png]
+|image::empty.png[empty.png]
+
+|+++Update Module Execution Status+++
+
+|image::broadcast.png[broadcast.png]
+|image::My Cloneable Module.lvlib-Update Module Execution Status.vi.png[My Cloneable Module.lvlib:Update Module Execution Status.vi]
+|Fire the Get Module Execution Status request.
+
+|image::empty.png[empty.png]
+|image::reentrancy-shared.png[reentrancy-shared.png]
+|image::empty.png[empty.png]
+|===
+
+**Type**: image:request.png[] -> Request | image:request-and-wait-for-reply.png[] -> Request and Wait for Reply  | image:broadcast.png[] -> Broadcast
+
+**S**cope: image:scope-protected.png[] -> Protected | image:scope-community.png[] -> Community
+
+**R**eentrancy: image:reentrancy-preallocated.png[] -> Preallocated reentrancy | image:reentrancy-shared.png[] -> Shared reentrancy
+
+**I**nlining: image:inlined.png[] -> Inlined
+
+=== Module Start/Stop calls
+
+[graphviz, format="svg", align="center"]
+....
+digraph G_8B655DD154184BA8B2F56E349232FA3C {
+rankdir=LR;
+edge[dir=none color=aliceblue  arrowhead=box arrowtail=box style=filled penwidth=1 fontcolor=black fontsize=12]
+node[color=black shape=box fontcolor=black fontsize=12 style=filled fillcolor=white]
+"1067FC92-ADB1-408E-A6A0-F40BBB720739"[label="Start Module" color=yellowgreen shape=note fontcolor=black fontsize=12 style=filled fillcolor=white]
+"364BCB98-24EC-4D50-A6C4-116F61AE4A6B"[label="Stop Module" color=tomato shape=note fontcolor=black fontsize=12 style=filled fillcolor=white]
+"656D4E1D-BEBE-455B-B890-AB2745711F28"[label="Application" color=black shape=component fontcolor=black fontsize=12 style=filled fillcolor=white]
+"D908AA2D-AD7F-4890-AE27-FAF731EB2179"[label="Application" color=black shape=component fontcolor=black fontsize=12 style=filled fillcolor=white]
+"364BCB98-24EC-4D50-A6C4-116F61AE4A6B" -> "D908AA2D-AD7F-4890-AE27-FAF731EB2179" [dir=both color=tomato  arrowhead=odot arrowtail=inv style=dotted penwidth=1 fontcolor=black fontsize=12];
+"1067FC92-ADB1-408E-A6A0-F40BBB720739" -> "656D4E1D-BEBE-455B-B890-AB2745711F28" [dir=both color=yellowgreen  arrowhead=odot arrowtail=inv style=filled penwidth=1 fontcolor=black fontsize=12];
+}
+....
+
+.Start and Stop module callers
+[cols="", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|Function |Callers
+
+|Start Module
+|Application.lvlib:Main.vi
+
+|Stop Module
+|Application.lvlib:Main.vi
+|===
+
+=== Module Helper Loops
+
+[NOTE]
+====
+No Helper Loops Found
+====
+
+=== Module custom errors
+
+[TIP]
+====
+Custom errors are added to the module via vi named `*--error.vi`.
+====
+
+Module My Cloneable Module.lvlib use the following custom errors:
+
+.Custom errors
+[cols="<.<4a,<.<2a,<.<10a", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|Name |Code |Description
+
+|+++Module Running as Singleton+++
+
+|403680
+|The "%s" module is currently running as singleton, but the Start Module VI was called with 'Run as Singleton' specified as FALSE.
+
+|+++Module Not Stopped+++
+
+|403682
+|The Stop Module VI for the %s module timed out while waiting for the module main VI to stop. The module main VI may still be running.
+
+|+++Module Not Synced+++
+
+|403683
+|%s Module was unable to synchronize events.
+
+|+++Module Not Running+++
+
+|403684
+|Not a single instance of "%s" Module running.
+
+|+++Module Running as Cloneable+++
+
+|403685
+|The "%s" module is currently running as cloneable, but the Start Module VI was called with 'Run as Singleton' specified as TRUE.
+
+|+++Request and Wait for Reply Timeout+++
+
+|403686
+|
+
+|+++Master Reference Not Closed+++
+
+|403687
+|The "%s" module cannot be run as singleton because the Master Reference is still open from a prior run as cloneable. If you plan on running this module as both singleton and cloneable, consider changing your Main VI to wire a value of TRUE to the 'Close Master Reference' input of Init Module.vi.
+|===
+
+=== Module Constant VIs
+
+.Constant VIs Found
+[cols="<.<3a,<.<3a,<.<6a", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|VI Name |Data Type |Value
+
+|+++Module Name--constant+++
+
+|["String","String"]
+|[" %d","My Cloneable Module"]
+
+|+++Module Timeout--constant+++
+
+|I32
+|5000
+|===
+
+=== +++Bookmarks+++
+
+
+==== #DQMH_CodeNeeded
+
+[cols="<.<8a,<.<2a", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|Text |VI
+
+|#DQMH_CodeNeeded - When adding/changing parameters on the Main VI connector pane:
+1. Right-click this constant and select Open Type Def.
+2. Drag the Main VI for this DQMH module onto the Main VI Type control inside the type definition.
+3. Save and close the type definition.
+|+++Start Module.vi+++
+
+
+|#DQMH_CodeNeeded - Initialize your state data here.
+|+++Main.vi+++
+
+
+|#DQMH_CodeNeeded - Initialize the appearance of the front panel.
+|+++Main.vi+++
+
+
+|#DQMH_CodeNeeded - Add any required cleanup code here.
+|+++Main.vi+++
+
+|===
+
+==== #DQMH_CodeRecommended
+
+[cols="<.<8a,<.<2a", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|Text |VI
+
+|#DQMH_CodeRecommended - If you rename your module, update the constant value above.
+|+++Module Name--constant.vi+++
+
+
+|#DQMH_CodeRecommended - If the module is running in standalone mode (External Launch = FALSE), this code will pop up an error dialog and call the 'Exit' message if an error occurs. Add more fine-grained error management here.
+|+++Main.vi+++
+
+|===
+
+==== #DQMH_HowTo
+
+[cols="<.<8a,<.<2a", %autowidth, frame=all, grid=all, stripes=none]
+|===
+|Text |VI
+
+|#DQMH_HowTo This is the top-level VI of a DQMH Cloneable module. See the following video for a discussion of cloneable-specific functionality: https://bit.ly/DQMHCloneableMainWalkthrough
+|+++Main.vi+++
+
+
+|#DQMH_HowTo The 'Simulate MHL Error' button  illustrates how the MHL handles errors. This event is instructional in nature and can be removed.
+|+++Main.vi+++
+
+
+|#DQMH_HowTo The 'Simulate MHL Error' button  illustrates how the MHL handles errors. This event is instructional in nature and can be removed.
+|+++Main.vi+++
+
+
+|#DQMH_HowTo The 'Simulate EHL Error' button  illustrates how the EHL handles errors. This event is instructional in nature and can be removed.
+|+++Main.vi+++
+
+
+|#DQMH_HowTo The 'Do Something' messages are instructional in nature and can be removed.
+|+++Main.vi+++
+
+
+|#DQMH_HowTo The 'Do Something' messages are instructional in nature and can be removed.
+|+++Main.vi+++
+
+
+|#DQMH_HowTo The 'Do Something' messages are instructional in nature and can be removed with the Tools > DQMH Consortium > DQMH > Event > Remove DQMH Event utility.
+|+++Main.vi+++
+
+
+|#DQMH_HowTo The 'Do Something' messages are instructional in nature and can be removed with the Tools > DQMH Consortium > DQMH > Event > Remove DQMH Event utility.
+|+++Main.vi+++
+
+
+|#DQMH_HowTo The 'Do Something' messages are instructional in nature and can be removed with the Tools > DQMH Consortium > DQMH > Event > Remove DQMH Event utility.
+|+++Main.vi+++
+
+
+|#DQMH_HowTo The 'Do Something' messages are instructional in nature and can be removed with the Tools > DQMH Consortium > DQMH > Event > Remove DQMH Event utility.
+|+++Main.vi+++
+
+
+|#DQMH_HowTo The 'Do Something' messages are instructional in nature and can be removed with the Tools > DQMH Consortium > DQMH > Event > Remove DQMH Event utility.
+|+++Main.vi+++
+
+
+|#DQMH_HowTo The 'Do Something' messages are instructional in nature and can be removed with the Tools > DQMH Consortium > DQMH > Event > Remove DQMH Event utility.
+|+++Main.vi+++
+
+|===
