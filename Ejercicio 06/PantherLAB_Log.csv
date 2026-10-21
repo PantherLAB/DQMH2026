@@ -1,0 +1,12 @@
+01:46:31.096 p. m. 21/10/2026	 Event:Did Something	 Type: Broadcast	 Removed from: Function Generator.lvlib	 TypeCloneable
+01:46:32.957 p. m. 21/10/2026	 Event:Do Something	 Type: Request	 Removed from: Function Generator.lvlib	 TypeCloneable
+01:46:34.787 p. m. 21/10/2026	 Event:Do Something Else	 Type: Request	 Removed from: Function Generator.lvlib	 TypeCloneable
+01:46:36.510 p. m. 21/10/2026	 Event:Do Something Else and Wait for Reply	 Type: Request and Wait	 Removed from: Function Generator.lvlib	 TypeCloneable
+01:46:41.216 p. m. 21/10/2026	 New Module added, Name: Function Generator	 Type: Cloneable	 Description: 
+01:50:53.853 p. m. 21/10/2026	 New Event added to: Function Generator.lvlib	 Type: Cloneable	 Name:Set Signal Type	 Type:Request	 Scope:Public Request	 Description: Set Signal Type
+01:55:59.257 p. m. 21/10/2026	 New Event added to: Function Generator.lvlib	 Type: Cloneable	 Name:Set Signal Parameters	 Type:Request	 Scope:Public Request	 Description: 
+02:00:25.621 p. m. 21/10/2026	 Helper Loop added to: "Function Generator.lvlib:"	 named: "Continuous Tasks"
+02:01:19.414 p. m. 21/10/2026	 New Event added to: Function Generator.lvlib	 Type: Cloneable	 Name:Start	 Type:Request	 Scope:Public Request	 Description: Start Generating Waveforms
+02:02:23.610 p. m. 21/10/2026	 New Event added to: Function Generator.lvlib	 Type: Cloneable	 Name:Wake Up HL	 Type:Request	 Scope:Local Instance	 Description: 
+02:11:29.734 p. m. 21/10/2026	 New Event added to: Function Generator.lvlib	 Type: Cloneable	 Name:Waveform Updated	 Type:Broadcast	 Scope:Public Request	 Description: 
+02:13:50.569 p. m. 21/10/2026	 New Event added to: Function Generator.lvlib	 Type: Cloneable	 Name:Stop FGEN	 Type:Request	 Scope:Public Request	 Description: 
