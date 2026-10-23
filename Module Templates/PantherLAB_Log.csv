@@ -1,0 +1,14 @@
+12:16:37.838 p. m. 23/10/2026	 Event:Did Something	 Type: Broadcast	 Removed from: Singleton SubPanel.lvlib	 TypeSingleton
+12:16:39.233 p. m. 23/10/2026	 Event:Do Something	 Type: Request	 Removed from: Singleton SubPanel.lvlib	 TypeSingleton
+12:16:40.618 p. m. 23/10/2026	 Event:Do Something Else	 Type: Request	 Removed from: Singleton SubPanel.lvlib	 TypeSingleton
+12:16:41.989 p. m. 23/10/2026	 Event:Do Something Else and Wait for Reply	 Type: Request and Wait	 Removed from: Singleton SubPanel.lvlib	 TypeSingleton
+12:16:45.064 p. m. 23/10/2026	 New Module added, Name: Singleton SubPanel	 Type: Singleton	 Description: 
+12:22:13.928 p. m. 23/10/2026	 New Event added to: Singleton SubPanel.lvlib	 Type: Singleton	 Name:Insert in SubPanel	 Type:Request	 Scope:Public Request	 Description: Comando para que Main.vi se inserte en un SubPanel
+12:39:15.605 p. m. 23/10/2026	 New Event added to: Singleton SubPanel.lvlib	 Type: Singleton	 Name:Remove from SubPanel	 Type:Request	 Scope:Public Request	 Description: Remover Main.vi del subpanel
+12:54:34.342 p. m. 23/10/2026	 Event:Did Something	 Type: Broadcast	 Removed from: Cloneable SubPanel.lvlib	 TypeCloneable
+12:54:36.329 p. m. 23/10/2026	 Event:Do Something	 Type: Request	 Removed from: Cloneable SubPanel.lvlib	 TypeCloneable
+12:54:38.269 p. m. 23/10/2026	 Event:Do Something Else	 Type: Request	 Removed from: Cloneable SubPanel.lvlib	 TypeCloneable
+12:54:40.141 p. m. 23/10/2026	 Event:Do Something Else and Wait for Reply	 Type: Request and Wait	 Removed from: Cloneable SubPanel.lvlib	 TypeCloneable
+12:54:44.895 p. m. 23/10/2026	 New Module added, Name: Cloneable SubPanel	 Type: Cloneable	 Description: 
+12:58:00.940 p. m. 23/10/2026	 Singleton SubPanel.lvlib	 Event: "Insert in SubPanel"	 Duplicated to: Cloneable SubPanel.lvlib	 with the name: "Insert in SubPanel"
+01:15:44.545 p. m. 23/10/2026	 Singleton SubPanel.lvlib	 Event: "Remove from SubPanel"	 Duplicated to: Cloneable SubPanel.lvlib	 with the name: "Remove From SubPanel"
